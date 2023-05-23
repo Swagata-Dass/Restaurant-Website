@@ -1,0 +1,198 @@
+online order . html
+
+<!DOCTYPE html>
+<html>
+
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+<style>
+
+
+body {
+	font-family: 'Cookie' ;
+}
+
+.number {
+	padding: .3em;
+	text-align: center;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background-color: seashell;
+	border-radius: 50%;
+}
+
+h1 {
+	font-family: 'Cookie';
+	text-align: center;
+	margin: 1em;
+	font-size: 4.5em;
+	text-shadow: 2px 2px 3px grey;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	background: thistle;
+	margin: 0 auto 2em;
+	border-radius: 1em;
+	padding: 1em 0;
+}
+
+input,
+textarea {
+	border: none;
+	padding: .5em;
+	border-radius: .25em;
+}
+
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover {
+	background: seashell;
+	border-bottom: 2px solid purple;
+	outline: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin-right: .25em;
+	width: 1em;
+	height: 1em;
+}
+
+fieldset {
+	border: none;
+	margin: .5em;
+}
+
+legend {
+	font-family: 'Cookie';
+	font-size: 1.4em;
+	font-weight: bold;
+	padding-bottom: .5em;
+}
+
+label,
+.button {
+	font-family: 'Baloo Chettan 2';
+	font-size: 16px
+}
+
+.button {
+	box-shadow: 1px 1px 3px black;
+	border: none;
+	background-color: #DFDBE5;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+	font-size: 1em;
+	align-self: center;
+ padding: .7em;
+	color: black;
+}
+
+.button:hover {
+	cursor: pointer;
+	background: radial-gradient(black, purple);
+	color: white;
+	box-shadow: inset 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+#name,
+#mail,
+#phone,
+textarea {
+	margin: .5em 0;
+	box-shadow: 1px 1px 2px grey;
+}
+
+.order {
+	display: none;
+	text-align: center;
+}
+
+img {
+		max-width: 100%;
+}
+
+@media (min-width: 550px) {
+	form {
+		max-width: 50%;
+	}
+}
+
+</style>
+
+
+<body >
+
+<div class="main">
+	<h1>Place Your Order Here!</h1>
+	<form action="javascript:void(0);">
+		<fieldset>
+		<legend><div class="number">1</div> Your Info:</legend>
+		<label for="name">Name:</label><br>
+	<input type="text" id="name" name="user_name"><br>
+		<label for="mail">Email:</label><br>
+	<input type="email" id="mail" name="user_email"><br>
+		<label for="phone">Phone:</label><br>
+	<input type="tel" id="phone" name="user_tel"><br>
+		<label for="address">Address:</label><br>
+		<textarea></textarea>
+	</fieldset>
+	<fieldset>
+		<legend><div class="number">5</div>Starters</legend>
+		<input type="checkbox" id="Chicken Kabab" name="Chicken Kabab"><label>Chicken Kabab</label>&nbsp
+		<input type="checkbox" id="Chicken sticks" name="Chicken sticks"><label>Chicken sticks</label>&nbsp
+		<input type="checkbox" id="Baby Corn" name="Baby Corn"><label>Baby Corn</label></br>
+		<input type="checkbox" id="Veg Kabab" name="Veg Kabab"><label>Veg Kabab</label>&nbsp
+		<input type="checkbox" id="Thin Pizza" name="Thin Pizza"><label>Thin Pizza</label></br>
+	</fieldset>
+	<fieldset>
+		<legend><div class="number">3</div> Non-veg main course</legend>
+		<input type="checkbox" id="Chicken Do Pyaza" name="Chicken Do Pyaza"><label>Chicken Do Pyaza</label>&nbsp
+		<input type="checkbox" id="Chicken Kadai" name="Chicken Kadai"><label>Chicken Kadai</label>&nbsp
+		<input type="checkbox" id="Chicken Handi" name="Chicken Handi"><label>Chicken Handi</label></br>
+		<input type="checkbox" id="Chicken bhunna" name="Chicken bhunna"><label>Chicken bhunna</label>&nbsp
+		<input type="checkbox" id="Chicken Kassa" name="Chicken Kassa"><label>Chicken Kassa</label></br>
+	</fieldset>
+		<fieldset>
+		<legend><div class="number">3</div> Veg main course</legend>
+		<input type="checkbox" id="Paneer Kofta" name="Paneer Kofta"><label>Paneer Kofta</label>&nbsp
+		<input type="checkbox" id="Paneer Butter Masala" name="Paneer Butter Masala"><label>Paneer Butter Masala</label>&nbsp
+		<input type="checkbox" id="Mushroom Masala" name="Mushroom Masala"><label>Mushroom Masala</label></br>
+		<input type="checkbox" id="Channa Masala" name="Channa Masala"><label>Channa Masala</label>&nbsp
+		<input type="checkbox" id="Mix Veg" name="Mix Veg"><label>Mix Veg</label></br>
+	</fieldset>
+	<fieldset>
+		<legend><div class="number">5</div>Dessert and Drinks</legend>
+		<input type="checkbox" id="Blue Lagoons" name="Blue Lagoons"><label>Blue Lagoons</label>&nbsp
+		<input type="checkbox" id="Diet Coke" name="Diet Coke"><label>Diet Coke</label>&nbsp
+	<input type="checkbox" id="Gulab Jamoon" name="Gulab Jamoon"><label>Gulab Jamoon</label></br>
+<input type="checkbox" id="Rasmalai" name="Rasmalai"><label>Rasmalai</label>&nbsp
+<input type="checkbox" id="Ice Cream" name="Ice Cream"><label>Ice Cream</label></br>
+	</fieldset>
+<fieldset>
+	<legend><div class="number">6</div> Any Special Requests:</legend>
+<textarea></textarea>
+</fieldset>
+<input class="button" type="submit" value="Order Food!" onclick="submitForm()">
+</form>
+</div>
+<div class="order">
+	<h1>Thanks for your order!</h1>
+	<img src="https://i.imgur.com/O0oqbwc.jpg">
+</div>
+
+</body>
+
+<script>
+
+const submitForm = () => {
+	document.querySelector(".main").style.display="none";
+	document.querySelector(".order").style.display="block";
+};
+
+
+</script>
+
+</html >

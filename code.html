@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurant Website</title>
+</head>
+
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 30px ;
+}
+
+li a:hover {
+
+  background-color: red;
+}
+
+h2 {
+  text-align:center;
+  color:red;
+  margin:100px 0px 0px 0px;
+  font-family:courier;
+  font-size: 80px;
+}
+
+h1 {
+  text-align:center;
+  color:red;
+  font-family:courier;
+  margin:-1px;
+  font-size: 120px;
+
+}
+
+p {
+
+	style="font-family:Verdana;
+    font-size:20px;
+    color:grey;
+}
+
+.quality {
+
+	border: 1px solid blue;
+  	background-color: lightblue;
+  	padding: 10px;
+	width : 250px;
+    height : 150px;
+    padding: 20px;
+    margin: 20px;
+
+
+}
+
+
+  .food-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .food-item:hover{
+
+     cursor: pointer;
+     box-shadow: 2px 2px 0px #ffffff,
+                4px 4px 0px #ffffff,
+                8px 8px 0px #ffffff,
+                10px 10px 0px #ffffff,
+                12px 12px 0px #ffffff;
+  }
+
+  .food-image {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+
+  .food-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .food-details {
+    flex: 2;
+    color: white;
+  }
+
+  .food-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .food-price {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+#book-reservation {
+			background-color: #f2f2f2;
+			padding: 50px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		#book-reservation img {
+			width: 50%;
+			height: auto;
+			margin-right: 50px;
+		}
+		#book-reservation form {
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-size: 18px;
+			font-family: Arial, Helvetica, sans-serif;
+			color: #555;
+		}
+		#book-reservation form input[type="text"], #book-reservation form input[type="number"], #book-reservation form input[type="tel"], #book-reservation form textarea {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			resize: vertical;
+			margin-bottom: 10px;
+		}
+		#book-reservation form input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		#book-reservation form input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+
+
+  .banner_reviews {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+
+  .review {
+    width: 30%;
+    text-align: center;
+  }
+
+  .quote {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  .author {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 -10px;
+ }
+
+  .gallery-item {
+    flex: 0 0 calc(45.33% - 10px);
+    margin: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.1);
+  }
+
+  .gallery-item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover:before {
+    opacity: 1;
+  }
+
+  .gallery-item:after {
+    content: attr(alt);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover:after {
+    opacity: 1;
+  }
+
+
+
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Caption text */
+  .text {
+    color: black ;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  .menu_img{
+  	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 800px;
+  }
+
+
+
+  .active {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+  }
+
+
+
+
+</style>
+
+
+<body style="background-color:#e8ebe9">
+
+<div style="background-image: url('https://img.freepik.com/free-photo/golden-cutlery-with-textile-plate-dark-background-top-view_1220-6580.jpg');
+background-size: 100%;height:600px;" >
+
+<ul style="margin: 10px 0px 0px 200px">
+  <li><a href="#home">Home</a> </li>
+  <li><a href="food ordering.html">Order Food</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#menu">Menu</a></li>
+  <li><a href="#reservation">Reservation</a></li>
+  <li><a href="#contact">About</a></li>
+
+</ul>
+
+<h2 id = "home">Pure Food</h2>
+<h1>Indulgence</h1>
+<h2 style="font-family:Cookie;color:white;"> Lazizz Restaurant, <span  style="color:red;">Best in town</span> </h2>
+
+</div>
+
+
+
+<h2 style="font-family:Cookie;color:black;" id = "menu"> Our <span  style="color:red;">Offerings</span> </h2>
+<br><br>
+
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <div class="numbertext">1</div>
+        <img src="https://b.zmtcdn.com/data/pictures/2/19498142/2e81d5f837ccddf905b61fec31a94d92.jpeg" class="menu_img">
+        <div class="text">Special items</div>
+      </div>
+
+<div class="mySlides fade">
+  <div class="numbertext">1</div>
+  <img src="https://i.ibb.co/r74F5pL/starters.png" class="menu_img">
+  <div class="text">Starters</div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext">2</div>
+  <img src="https://i.ibb.co/Yydhb4x/chicken-main-course.png" class="menu_img">
+  <div class="text">Chicken Main Course</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3</div>
+  <img src="https://i.ibb.co/bWTpHZW/veg-main-course.png" class="menu_img">
+  <div class="text">Veg Main Course</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4</div>
+  <img src="https://i.ibb.co/vZLcdfD/rice-and-roti.png" class="menu_img">
+  <div class="text">Rice and Roti</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">5</div>
+  <img src="https://i.ibb.co/VWppp7c/drink-and-dessert.png" class="menu_img">
+  <div class="text">Drink and Dessert</div>
+</div>
+
+
+</div>
+<br>
+
+<div>
+
+<br><br>
+
+	<h2 style="font-family:Cookie;color:black;"> Discover <span  style="color:red;">Our Story</span> </h2>
+
+
+</div>
+
+<div style="background-image: url('https://img.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg');">
+
+  <div class="quality" style="float:left;">
+
+    <h1 style="font-size:40px; text-align:left;font-family:cookie"> Magical Atmosphere </h1>
+
+    <p >
+
+      An unforgettable dining experience for you and your family.
+
+    </p>
+
+  </div>
+
+  <div class="quality" style="float:left; margin-left:20px">
+
+    <h1 style="font-size:40px; text-align:left;font-family:cookie"> Best Food Quality </h1>
+
+    <p >
+
+      It has spread its aroma in this industry over the past few years.
+
+    </p>
+
+  	</div>
+
+  <div class="quality" style="float:left; margin-left:20px">
+
+    <h1 style="font-size:40px; text-align:left;font-family:cookie"> Fair Price Food </h1>
+
+    <p >
+
+      Robust honest and full of flavor with finest & freshest ingredients at fair prices.
+
+    </p>
+
+  </div>
+
+  <div class="quality" style="float:left; margin-left:20px">
+
+    <h1 style="font-size:40px; text-align:left;font-family:cookie"> 5 Star Services </h1>
+
+    <p >
+
+      We are friendly, available, attentive and quick to take care of customers' needs.
+
+    </p>
+
+  </div>
+
+</div>
+
+<br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br>
+
+
+
+<div id="best-selling" style="background-image: url('https://img.freepik.com/free-vector/background-abstract-line-digital-gradient-luxury_483537-2347.jpg');background-size: contain; padding:100px">
+		<h2 style="font-family:Cookie;color:white;"> Best-Selling <span  style="color:red;">Foods</span> </h2>
+
+        <br><br>
+
+		<div class="food-item">
+			<div class="food-image">
+				<img src="https://w0.peakpx.com/wallpaper/17/348/HD-wallpaper-cool-chicken-burger-for-cool-daxter-nice-food-hot-beautiful-sexy-fast.jpg" alt="Food Image">
+			</div>
+			<div class="food-details">
+				<div class="food-name">Spicy Chicken Burger</div>
+				<div class="food-price">Rs109</div>
+				<div class="food-description">Delicious chicken burger with a spicy twist.</div>
+			</div>
+		</div>
+
+		<div class="food-item">
+			<div class="food-image">
+				<img src="https://previews.123rf.com/images/antongepolov/antongepolov1312/antongepolov131200004/24170745-hot-pizza.jpg" alt="Food Image">
+			</div>
+			<div class="food-details">
+				<div class="food-name">Margherita Pizza</div>
+				<div class="food-price">Rs309</div>
+				<div class="food-description">A classic pizza with tomato sauce, mozzarella cheese, and fresh basil.</div>
+			</div>
+		</div>
+
+		<div class="food-item">
+			<div class="food-image">
+				<img src="https://hildaskitchenblog.com/wp-content/uploads/2021/12/fish-burritos-square.jpg" alt="Food Image">
+			</div>
+			<div class="food-details">
+				<div class="food-name">Fish Burrito</div>
+				<div class="food-price">Rs509</div>
+				<div class="food-description">A filling burrito stuffed with seasoned fish, beans, rice, and cheese.</div>
+			</div>
+		</div>
+  </div>
+
+  <h3 style="font-family:Cookie;text-align:center;font-size:80px"> What Our
+
+  <span style="color:red"> Clients Say</span>
+  </h3>
+
+
+
+
+
+  <div class="banner_reviews">
+  <div class="review">
+    <p class="quote">"The food here is amazing! I especially love the pizza."</p>
+    <p class="author">- Priyam Raj</p>
+  </div>
+  <div class="review">
+    <p class="quote">"This is my new favorite restaurant. The service is excellent."</p>
+    <p class="author">- Pratyay Sutradhar</p>
+  </div>
+  <div class="review">
+    <p class="quote">"The atmosphere here is perfect for a romantic dinner."</p>
+    <p class="author">- Ansh Kumar</p>
+  </div>
+</div>
+
+<h2 style="font-family:Cookie;color:black;" id = "gallery"> Our <span  style="color:red;">Gallary </span> </h2>
+
+<div class="gallery" >
+  <div class="gallery-item">
+    <img src="https://wallpapercave.com/wp/wp1874159.jpg" alt="Image 1">
+  </div>
+  <div class="gallery-item">
+    <img src="https://www.teahub.io/photos/full/171-1718121_high-resolution-restaurant-images-hd.jpg" alt="Image 2">
+  </div>
+  <div class="gallery-item">
+    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?cs=srgb&dl=pexels-chan-walrus-941861.jpg&fm=jpg" alt="Image 3">
+  </div>
+  <div class="gallery-item">
+    <img src="https://www.myyellowplate.com/wp-content/uploads/2021/08/Cafe-Simla-Times-Shimla.jpg" alt="Image 4">
+  </div>
+  <div class="gallery-item">
+    <img src="https://static.toiimg.com/photo/46381147.cms" alt="Image 5">
+  </div>
+  <div class="gallery-item">
+    <img src="https://im.whatshot.in/img/2019/Jun/tamasha-cropped-1-1559556106.jpg" alt="Image 6">
+  </div>
+</div>
+
+
+
+
+          <h2 style="font-family:Cookie;color:black;" id = "reservation"> Make a <span  style="color:red;">Reservation </span> </h2>
+  <div id="book-reservation">
+
+
+		<img src="https://hips.hearstapps.com/hmg-prod/images/drink-to-order-at-the-bar-1642641671.png?crop=1.00xw:0.742xh;0,0.211xh&resize=1200:*">
+
+        <form>
+			<label>Name:</label>
+			<input type="text" required>
+			<label>Number of persons:</label>
+			<input type="number" min="1" max="10" required>
+			<label>Time:</label>
+			<input type="time" required>
+			<label>Date:</label>
+			<input type="date" required>
+			<label>Contact number:</label>
+			<input type="tel" " required>
+			<label>Message:</label>
+			<textarea rows="4"></textarea>
+			<input type="submit" value="Reserve your table now">
+		</form>
+
+	</div>
+
+
+
+
+
+<div class="footer" id = "contact" style="background-color:white;padding:15px">
+
+	<p style="color:black;font-size:20px"> Contact: +919064242717 &emsp; <a href="mailto: dasswagata026@gmail.com"> Email: dasswagata026@gmail.com </a> &emsp; <a href="https://www.instagram.com/lazeez_._/"> Instagram: Lazizzislazeezz </a></p>
+
+    <p style="color:black;float:right;font-family:fantasy;font-size:40px"> Made by Swagata Das</p>
+
+
+</div>
+
+
+
+
+
+<script>
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 4000); // Change image every 4 seconds
+}
+
+
+</script>
+
+
+</body>
+</html>
